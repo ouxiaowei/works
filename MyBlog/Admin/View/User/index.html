@@ -1,0 +1,61 @@
+﻿{extends file="../Layouts/index.html"}
+
+{block name='style1'}
+	background-color: #92c609;
+	border-radius: 4px;
+{/block}
+
+{block name='right'}
+    <div class="right">
+        <div class="location">
+                <strong>你现在所在的位置是:</strong>
+                <span>用户管理页面</span>
+            </div>
+            <form action="index.php?c=user&a=index" method="post">
+            <div class="search">
+                <span>请输入用户的名称或电话：</span>
+                <input type="text" name="search" placeholder="请输入用户的名称或电话"/>
+                
+                <span>状态：</span>
+                <select name="status" >
+                    <option value="">--请选择--</option>
+                    <option value="1">开启</option>
+                    <option value="2">锁定</option>
+                </select>
+
+                <input type="submit" style="width: 80px;" value="查询"/>
+                <a href="./index.php?c=user&a=add">添加用户</a>
+            </div>
+            </form>
+            <table class="providerTable" cellpadding="0" cellspacing="0">
+                <tr class="firstTr">
+                    <th width="10%">ID</th>
+		            <th width="20%">用户昵称</th>
+		            <th width="20%">用户状态</th>
+		            <th width="30%">用户电话</th>
+		            <th width="20%">操作</th>
+                </tr>
+            {foreach $data as $k=>$v}
+                <tr>
+                    <td>{$v['id']}</td>
+                    <td>{$v['nickname']}</td>
+                    <td>{$status[$v['status']]}</td>
+            		<td>{$v['phone']}</td>
+                    <td>
+                        <a href="./index.php?c=user&a=edit&id={$v['id']}"><img src="Public/img/xiugai.png" alt="修改" title="修改"/></a>
+                        <a href="./index.php?c=user&a=delete&id={$v['id']}" class="removeBill"><img src="Public/img/schu.png" alt="删除" title="删除"/></a>
+                    </td>
+                </tr>
+                {/foreach}
+            </table>
+            <div class="page" style="border: 1px solid gray;">
+            	<ul>
+            		<a href="#"><li>共{$maxPage}页/第{$page}页</li></a>
+            		<a href="index.php?c=user&a=index&p=1&{$url}"><li>首页</li></a>
+            		<a href="index.php?c=user&a=index&p={$page-1}&{$url}"><li>上一页</li></a>
+            		<a href="index.php?c=user&a=index&p={$page+1}&{$url}"><li>下一页</li></a>
+            		<a href="index.php?c=user&a=index&p={$maxPage}&{$url}"><li>尾页</li></a>
+            	</ul>
+            </div>
+    </div>
+    {/block}

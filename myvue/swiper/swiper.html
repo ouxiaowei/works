@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="swiper-3.4.2.min.css"/>
+		<script src="swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.swiper-container {
+			    width: 600px;
+			    height: 300px;
+			}
+			.slide1{background-color: brown;}  
+			.slide2{background-color: greenyellow;}  
+			.slide3{background-color: gold;}  
+		</style>
+	</head>
+	<body>
+		<div class="swiper-container">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide slide1">Slide 1</div>
+	        <div class="swiper-slide slide2">Slide 2</div>
+	        <div class="swiper-slide slide3">Slide 3</div>
+	    </div>
+	    <!-- 如果需要分页器 -->
+	    <div class="swiper-pagination"></div>
+	</div>
+		
+	</body>
+	<script>        
+	  var mySwiper = new Swiper ('.swiper-container', {
+	    direction: 'horizontal',
+	    loop: true,
+	    autoplay:1000,
+	    // 如果需要分页器
+		pagination:'.swiper-pagination',
+	      
+	  })        
+  </script>
+</html>

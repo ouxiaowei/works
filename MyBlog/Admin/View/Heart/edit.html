@@ -1,0 +1,36 @@
+{extends file="../Layouts/index.html"}
+
+{*修改菜单背景*}
+{block name='style3'}
+	background-color: #92c609;
+    border-radius: 4px;
+{/block}
+
+{*修改右侧的内容*}
+{block name="right"}
+<div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>供应商管理页面 >> 文章修改页面</span>
+        </div>
+        <div class="providerAdd">
+            <form action="./index.php?c=heart&a=update&id={$data['id']}" method="post">
+                <div class="">
+                    <label for="userId">心情标题：</label>
+                    <input type="text" name="title" id="userId" value="{$data['title']}"/>
+                    <span>*心情标题</span>
+                </div>
+                <div>
+                    <label for="userName">心情详情：</label>
+                    <textarea name="contents" id="" cols="30" rows="10" style="width:800px;height:150px;outline:none;resize:none;width: 260px;">{$data['contents']}</textarea>
+                    <span >*心情详情</span>
+                </div>
+                <div class="providerAddBtn">
+                   	<input type="submit" style="width:80px; value="保存"/>
+                   	<input type="reset" style="width:80px; background:linear-gradient(to bottom, #85c0ec, #6aa7d6, #508dc6, #306fb4, #17559e);font-size: 14px;" value="重置"/>
+                </div>
+            </form>
+        </div>
+
+    </div>
+{/block}

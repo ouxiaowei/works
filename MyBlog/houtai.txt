@@ -1,0 +1,12 @@
+//添加article的内容
+
+insert into article values(null,'博学多才','小王','介绍大师','大师是怎样炼成的，说出来你可能不信','aaaa.jpg','大师','666','2018-03-03');
+insert into article values(null,'旅游','王尼玛','最美中国','中国大好河山','bbb.jpg','中国','6666','2018-02-03');
+insert into article values(null,'吃货','王胖子','合格吃货','怎样吃才能胖起来','ccc.jpg','什么东西好吃','66668','2018-01-03');
+insert into article values(null,'家事','老王','家里那点事','家家有本难念的经','ddd.jpg','老王教你处理家事','66999','2018-06-03');
+
+//添加feel的内容
+
+insert into feel values(null,'美食','怎么做出好吃的大餐','2018-06-03 10:20:50');
+insert into feel values(null,'学习','学无止境，好好听，好好学','2018-06-03 10:25:50');
+insert into feel values(null,'那年那天','那天放学后','2018-06-03 12:20:50');

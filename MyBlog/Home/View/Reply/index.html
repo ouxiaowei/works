@@ -1,0 +1,122 @@
+{extends file="../Layouts/index.html"}
+
+{block name='style5'}
+	color:#000;
+{/block}
+
+{block name='login'}
+	欢迎{$smarty.session['h_username']}
+	
+    | <a href="./index.php?c=login&a=doLogout">退出</a> 
+    
+{/block}
+
+{block name='main'}
+<nav class="breadcrumb">
+    <div class="container"> <i class="Hui-iconfont">&#xe67f;</i> <a href="/" class="c-primary">首页</a> <span class="c-gray en">&gt;</span>  <span class="c-gray">留言板</span> </div>
+</nav>
+
+<section class="container">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 mt-20">
+        <!--用于评论-->
+        <form action="index.php?c=reply&a=doReply&id={$id}" method="post">
+                        
+            <input type="hidden" name='uid_re' value="{$smarty.session.h_uid}"/>
+            <input type="hidden" name='reply_at' value="{date('Y-m-d H:i:s',$smarty.now)}"/>
+            
+            <div class="mt-20" id="ct">
+                <div id="err" class="Huialert Huialert-danger hidden radius">成功状态提示</div>
+                <textarea id="textarea1" name="reply_contents" style="height:200px;" placeholder="看完不留一发？"> </textarea>
+                <div class="text-r mt-10">
+                    <button onclick="getPlainTxt()" class="btn btn-primary radius" > 发表评论</button>
+                </div>
+            </div>
+        </form>
+        <div class="line"></div>
+
+        <ul class="commentList mt-50">
+            {foreach $res as $k=>$v}
+              <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="http://q.qlogo.cn/qqapp/101388738/1CF8425D24660DB8C3EBB76C03D95F35/100"></i></a>
+                    <div class="comment-main">
+                        <header class="comment-header">
+                            <div class="comment-meta"><a class="comment-author" href="#">
+                                {$v['nickname']}
+                            </a>
+                                <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20" class="f-r">{$v['reply_at']}</time>
+                            </div>
+                        </header>
+                        <div class="comment-body">
+                            {$v['reply_contents']}
+                            <ul class="commentList">
+                                {foreach $data as $a=>$b}
+                                    {if $b['re_id']==$v['id']}
+                                        <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="http://qzapp.qlogo.cn/qzapp/101388738/696C8A17B3383B88804BA92ECBAA5D81/100"></i></a>
+                                            <div class="comment-main">
+                                                <header class="comment-header">
+                                                    <div class="comment-meta"><a class="comment-author" href="#">{$b['nickname']}</a>
+                                                        <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20" class="f-r">{$b['reply_at']}</time>
+                                                    </div>
+                                                </header>
+                                                <div class="comment-body">
+                                                    <p>{$b['reply_contents']}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {else}
+                                    {/if}
+                                {/foreach}
+
+                            </ul>
+                            <form action="index.php?c=reply&a=doReply_n&nau_id={$smarty.session.h_uid}" method="post">
+                            <div class="comment mt-20">
+                                <div id="err2" class="Huialert Huialert-danger hidden radius">成功状态提示</div>
+                                <input type="hidden" name="re_id" value="{$v['id']}">
+                                <input type="hidden" name='reply_at' value="{date('Y-m-d H:i:s',$smarty.now)}"/>
+                                <textarea class="textarea" name="reply_contents" style="height:100px;" > </textarea>
+                                <button style="float: right;" type="submit" class="btn btn-primary radius mt-10">回复</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+
+            {/foreach}
+        </ul>
+        <!--用于回复-->
+        
+
+    </div>
+</section>
+{/block}
+{block name='js'}
+
+{literal}
+<script type="text/javascript">
+    $(function () {
+            $("img.lazyload").lazyload({failurelimit : 3});
+        
+        wangEditor.config.printLog = false;
+        var editor1 = new wangEditor('textarea1');
+        editor1.config.menus = ['insertcode', 'quote', 'bold', '|', 'img', 'emotion', '|', 'undo', 'fullscreen'];
+        editor1.config.emotions = { 'default': { title: '老王表情', data: './Public/plugin/wangEditor/emotions1.data'}, 'default2': { title: '老王心情', data: './Public/plugin/wangEditor/emotions3.data'}, 'default3': { title: '顶一顶', data: './Public/plugin/wangEditor/emotions2.data'}};
+        editor1.create();
+
+        //show reply
+        $(".hf").click(function () {
+            pId = $(this).attr("name");
+            $(this).parents(".commentList").find(".cancelReply").trigger("click");
+            $(this).parent(".comment-body").append($(".comment").clone(true));
+            $(this).parent(".comment-body").find(".comment").removeClass("hidden");
+            $(this).hide();
+        });
+        //cancel reply
+        $(".cancelReply").on('click',function () {
+            $(this).parents(".comment-body").find(".hf").show();
+            $(this).parents(".comment-body").find(".comment").remove();
+        });
+    });
+
+</script>
+{/literal}
+
+{/block}

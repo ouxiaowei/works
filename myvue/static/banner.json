@@ -1,0 +1,23 @@
+{
+	"subjects":[
+		{
+			"img":"static/images/banner/img_01.jpg",
+			"title":"灵魂画手租房记",
+			"intro":"给你带来不一样的租房体验",
+			"class":"1"
+		},
+		{
+			"img":"static/images/banner/img_02.jpg",
+			"title":"灵魂歌手租房记",
+			"intro":"享受生活中的天籁之音",
+			"class":"2"
+		},
+		{
+			"img":"static/images/banner/img_03.jpg",
+			"title":"灵魂舞者租房记",
+			"intro":"其实艺术就在你身边",
+			"class":"3"
+		}
+	
+	]
+}

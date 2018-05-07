@@ -1,0 +1,64 @@
+{
+	"subjects":[
+	{
+		"title": "长沙",
+		"pic": "static/images/ic_share_friends.png",
+		"food": "臭豆腐"
+	},
+	{
+		"title": "北京",
+		"pic": "static/images/ic_share_qq.png",
+		"food": "烤鸭"
+	},
+	{
+		"title": "深圳",
+		"pic": "static/images/ic_share_qzone.png",
+		"food": "生蚝"
+	},
+	{
+		"title": "桂林",
+		"pic": "static/images/ic_share_status.png",
+		"food": "桂花糕"
+	},
+	{
+		"title": "昆明",
+		"pic": "static/images/ic_share_wechat.png",
+		"food": "鲜花饼"
+	},
+	{
+		"title": "上海",
+		"pic": "static/images/ic_share_weibo.png",
+		"food": "特级水煮鱼"
+	},
+	{
+		"title": "成都",
+		"pic": "static/images/ic_user_info_birthday.png",
+		"food": "麻辣香锅"
+	},
+	{
+		"title": "兰州",
+		"pic": "static/images/ic_user_info_gender.png",
+		"food": "兰州拉面"
+	},
+	{
+		"title": "拉萨",
+		"pic": "static/images/ic_user_info_location.png",
+		"food": "牦牛肉"
+	},
+	{
+		"title": "呼和浩特",
+		"pic": "static/images/media.jpg",
+		"food": "特级牛扎"
+	},
+	{
+		"title": "哈尔滨",
+		"pic": "static/images/ic_user_info_birthday.png",
+		"food": "无冰箱冰淇淋"
+	},
+	{
+		"title": "南京",
+		"pic": "static/images/ic_share_wechat.png",
+		"food": "随便吃"
+	}
+	]
+}

@@ -1,0 +1,54 @@
+﻿{extends file="../Layouts/index.html"}
+
+{block name='style3'}
+	background-color: #92c609;
+	border-radius: 4px;
+{/block}
+
+{block name='right'}
+    <div class="right">
+            <div class="location">
+                <strong>你现在所在的位置是:</strong>
+                <span>心情管理页面</span>
+            </div>
+            <form action="index.php?c=heart&a=index" method="post">
+            <div class="search">
+                <span>标题：</span>
+                <input type="text" name="search" placeholder="请输入标题"/>
+                <input type="submit" style="width: 80px;" value="查询"/>
+                <a href="./index.php?c=heart&a=add">添加心情</a>
+            </div>
+            </form>
+            <!--用户-->
+            <table class="providerTable" cellpadding="0" cellspacing="0">
+                <tr class="firstTr">
+                <th width="10%">ID</th>
+                <th width="30%">心情标题</th>
+                <th width="30%">心情详情</th>
+                <th width="10%">发布时间</th>
+                <th width="20%">操作</th>
+            </tr>
+            {foreach $data as $k=>$v}
+            <tr>
+                <td>{$v['id']}</td>
+                <td>{$v['title']}</td>
+                <td>{$v['contents']}</td>
+                <td>{$v['insert_at']}</td>
+                <td>
+                    <a href="./index.php?c=heart&a=edit&id={$v['id']}"><img src="./Public/img/xiugai.png" alt="修改" title="修改"/></a>
+                    <a href="./index.php?c=heart&a=delete&id={$v['id']}" class="removeUser}"><img src="./Public/img/schu.png" alt="删除" title="删除"/></a>
+                </td>
+            </tr>
+            {/foreach}
+            </table>
+			<div class="page" style="border: 1px solid gray;">
+        	<ul>
+        		<a href="#"><li>共{$maxPage}页/第{$page}页</li></a>
+        		<a href="index.php?c=heart&a=index&p=1&{$url}"><li>首页</li></a>
+        		<a href="index.php?c=heart&a=index&p={$page-1}&{$url}"><li>上一页</li></a>
+        		<a href="index.php?c=heart&a=index&p={$page+1}&{$url}"><li>下一页</li></a>
+        		<a href="index.php?c=heart&a=index&p={$maxPage}&{$url}"><li>尾页</li></a>
+        	</ul>
+        </div>
+        </div>
+    {/block}

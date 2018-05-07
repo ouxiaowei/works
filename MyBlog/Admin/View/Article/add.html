@@ -1,0 +1,58 @@
+﻿{extends file='../Layouts/index.html'}
+
+{*修改菜单背景*}
+{block name='style2'}
+    background-color: #92c609;
+    border-radius: 4px;
+{/block}
+
+{block name="right"}
+<div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>文章管理页面 >> 文章添加页面</span>
+        </div>
+        <div class="providerAdd">
+            <form action="./index.php?c=article&a=insert" method="post" enctype="multipart/form-data">
+                <!--div的class 为error是验证错误，ok是验证成功-->
+                <div class="">
+                    <label for="userId">文章标题：</label>
+                    <input type="text" name="title" id="userId"/>
+                    <span>*请输入文章标题</span>
+                </div>
+                <div>
+                    <label for="userName">文章作者：</label>
+                    <input type="text" name="author" id="userName"/>
+                    <span >*请输入文章作者</span>
+                </div>
+                <div>
+                    <label for="userpassword">文章简介：</label>
+                    <textarea name="intro" id="" cols="30" rows="10"></textarea>
+                    <span>*少于500字</span>
+
+                </div>
+                <div>
+                    <label for="userRemi">文章详情：</label>
+                     <textarea name="details" id="" cols="30" rows="10" style="width:800px;height:150px;"></textarea>
+                    <span>*少于1000字</span>
+                </div>
+                <div>
+                    <label for="data">封面图：</label>
+                    <input type="file" name="picture" style="border:none;box-shadow:none;" id="data"/>
+                    <span >*图片不小于500*500</span>
+                </div>
+
+                <div>
+                    <label for="userphone">关键词：</label>
+                    <input type="text" name="keywords" id="userphone"/>
+                    <span >*请输入关键字</span>
+                </div>
+                <div class="providerAddBtn">
+                    <input type="submit" style="width:80px; value="保存"/>
+                    <input type="reset" style="width:80px; background:linear-gradient(to bottom, #85c0ec, #6aa7d6, #508dc6, #306fb4, #17559e);font-size: 14px;" value="重置"/>
+                </div>
+            </form>
+        </div>
+
+    </div>
+{/block}
